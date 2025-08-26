@@ -26,3 +26,18 @@ let flecheDroite = document.querySelector("#banner .arrow_right")
 flecheDroite.addEventListener("click", ()=> {
 	console.log("Clic sur flèche de droite")
 })
+
+let index = 0;
+
+const bannerImg = document.querySelector(".banner-img");
+const bannerText = document.querySelector("#banner p");
+const dotsContainer = document.querySelector(".dots");
+let diapoAcive = 
+
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dotsContainer.appendChild(dot);
+});
+
+
