@@ -21,11 +21,15 @@ let index = 0;
 let flecheGauche = document.querySelector("#banner .arrow_left")
 flecheGauche.addEventListener("click", () => {
 	console.log("Clic sur flèche de gauche")
+	index--
+	updateBanner()
 })
 
 let flecheDroite = document.querySelector("#banner .arrow_right")
 flecheDroite.addEventListener("click", () => {
 	console.log("Clic sur flèche de droite")
+	index++
+	updateBanner()
 })
 
 
@@ -40,5 +44,16 @@ const dotsContainer = document.querySelector(".dots");
 		if (i === 0) dot.classList.add("dot_selected");
 		dotsContainer.appendChild(dot);
 	});
+
+
+function updateBanner() {
+	const slide = slides[index];
+	bannerImg.src = `./assets/images/slideshow/${slide.image}`;
+	bannerText.innerHTML = slide.tagLine;
+
+	document.querySelectorAll(".dot").forEach((dot, i) => {
+		dot.classList.toggle("dot_selected", i === index);
+	});
+}
 
 
