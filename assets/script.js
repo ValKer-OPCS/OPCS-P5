@@ -16,34 +16,19 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+//Variables Globales 
+
 let index = 0;
-
-let flecheGauche = document.querySelector("#banner .arrow_left")
-flecheGauche.addEventListener("click", () => {
-	console.log("Clic sur flèche de gauche")
-	index--
-	if(index < 0 ){
-		index = slides.length - 1
-	}
-	updateBanner()
-
-})
-
 let flecheDroite = document.querySelector("#banner .arrow_right")
-flecheDroite.addEventListener("click", () => {
-	console.log("Clic sur flèche de droite")
-	index++
-	if(index >= slides.length){
-		index = 0
-	}
-	updateBanner()
-})
-
-
-
+let flecheGauche = document.querySelector("#banner .arrow_left")
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 const dotsContainer = document.querySelector(".dots");
+
+
+flecheGauche.addEventListener("click", () => changeSlide(-1));
+flecheDroite.addEventListener("click", () => changeSlide(1));
 
 	slides.forEach((_, i) => {
 		const dot = document.createElement("span");
@@ -52,7 +37,9 @@ const dotsContainer = document.querySelector(".dots");
 		dotsContainer.appendChild(dot);
 	});
 
+updateBanner();
 
+//////////////////////////////////
 function updateBanner() {
 	const slide = slides[index];
 	bannerImg.src = `./assets/images/slideshow/${slide.image}`;
@@ -61,6 +48,13 @@ function updateBanner() {
 	document.querySelectorAll(".dot").forEach((dot, i) => {
 		dot.classList.toggle("dot_selected", i === index);
 	});
+}
+
+function changeSlide(direction) {
+    index += direction;
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    updateBanner();
 }
 
 
