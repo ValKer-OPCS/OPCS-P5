@@ -22,13 +22,20 @@ let flecheGauche = document.querySelector("#banner .arrow_left")
 flecheGauche.addEventListener("click", () => {
 	console.log("Clic sur flèche de gauche")
 	index--
+	if(index < 0 ){
+		index = slides.length - 1
+	}
 	updateBanner()
+
 })
 
 let flecheDroite = document.querySelector("#banner .arrow_right")
 flecheDroite.addEventListener("click", () => {
 	console.log("Clic sur flèche de droite")
 	index++
+	if(index >= slides.length){
+		index = 0
+	}
 	updateBanner()
 })
 
