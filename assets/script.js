@@ -61,7 +61,7 @@ function changeSlide(direction) {
  * Update the global `index` to the clicked dot's position.
  * Trigger the `updateBanner()` function to refresh the banner display.
  */
-function genererDots() {
+function generateDots() {
 	slides.forEach((_, i) => {
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
@@ -85,7 +85,7 @@ function init() {
 leftArrow.addEventListener("click", () => changeSlide(-1));
 rightArrow.addEventListener("click", () => changeSlide(1));
 updateBanner();
-genererDots();
+generateDots();
 
 }
 
