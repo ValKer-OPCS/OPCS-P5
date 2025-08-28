@@ -53,6 +53,7 @@ function genererDots() {
 	dotsContainer.appendChild(dot);
 });
 }
+function init() {
 
 // Listeners pour les flèches
 
@@ -64,5 +65,8 @@ flecheDroite.addEventListener("click", () => changeSlide(1));
 updateBanner();
 genererDots();
 
+}
+
+init();
 
 
