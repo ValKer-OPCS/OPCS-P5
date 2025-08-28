@@ -57,12 +57,19 @@ function changeSlide(direction) {
 /**
  * Dynamically generates navigation dots under the banner.
  * The first dot is set as selected by default.
+ * Adds a click event listener to each dot to:
+ * Update the global `index` to the clicked dot's position.
+ * Trigger the `updateBanner()` function to refresh the banner display.
  */
 function genererDots() {
 	slides.forEach((_, i) => {
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
 	if (i === 0) dot.classList.add("dot_selected");
+	dot.addEventListener("click", () => {
+			index = i;
+			updateBanner();     
+		});
 	dotsContainer.appendChild(dot);
 });
 }
