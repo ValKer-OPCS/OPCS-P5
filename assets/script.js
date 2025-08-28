@@ -20,14 +20,18 @@ const slides = [
 //Variables Globales 
 
 let index = 0;
-let flecheDroite = document.querySelector("#banner .arrow_right")
-let flecheGauche = document.querySelector("#banner .arrow_left")
+let rightArrow = document.querySelector("#banner .arrow_right")
+let leftArrow = document.querySelector("#banner .arrow_left")
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 const dotsContainer = document.querySelector(".dots");
 
 //Fonctions
 
+/**
+ * Updates the banner image, text, and navigation dots
+ * based on the current slide index.
+ */
 function updateBanner() {
 	const slide = slides[index];
 	bannerImg.src = `./assets/images/slideshow/${slide.image}`;
@@ -38,6 +42,11 @@ function updateBanner() {
 	});
 }
 
+/**
+ * Changes the currently displayed slide according to the given direction.
+ * Loops back to the first/last slide when reaching the boundaries.
+ * @param {number} direction - -1 for left, +1 for right
+ */
 function changeSlide(direction) {
 	index += direction;
 	if (index < 0) index = slides.length - 1;
@@ -45,6 +54,10 @@ function changeSlide(direction) {
 	updateBanner();
 }
 
+/**
+ * Dynamically generates navigation dots under the banner.
+ * The first dot is set as selected by default.
+ */
 function genererDots() {
 	slides.forEach((_, i) => {
 	const dot = document.createElement("span");
@@ -53,15 +66,17 @@ function genererDots() {
 	dotsContainer.appendChild(dot);
 });
 }
+
+/**
+ * Initializes the slideshow:
+ * - Adds event listeners to navigation arrows
+ * - Updates the banner with the first slide
+ * - Generates navigation dots
+ */
 function init() {
 
-// Listeners pour les flèches
-
-flecheGauche.addEventListener("click", () => changeSlide(-1));
-flecheDroite.addEventListener("click", () => changeSlide(1));
-
-
-// Initialisation de la bannière
+leftArrow.addEventListener("click", () => changeSlide(-1));
+rightArrow.addEventListener("click", () => changeSlide(1));
 updateBanner();
 genererDots();
 
