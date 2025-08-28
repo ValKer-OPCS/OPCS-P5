@@ -45,7 +45,7 @@ function changeSlide(direction) {
 	updateBanner();
 }
 
-function genererDots(direction) {
+function genererDots() {
 	slides.forEach((_, i) => {
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
