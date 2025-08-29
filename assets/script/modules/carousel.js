@@ -1,32 +1,12 @@
-const slides = [
-	{
-		"image": "slide1.jpg",
-		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
-	},
-	{
-		"image": "slide2.jpg",
-		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-	},
-	{
-		"image": "slide3.jpg",
-		"tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
-	},
-	{
-		"image": "slide4.png",
-		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
-	}
-]
-
-//Variables Globales 
+import {slides} from '../variables.js';
 
 let index = 0;
-let rightArrow = document.querySelector("#banner .arrow_right")
-let leftArrow = document.querySelector("#banner .arrow_left")
+
+const rightArrow = document.querySelector("#banner .arrow_right")
+const leftArrow = document.querySelector("#banner .arrow_left")
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 const dotsContainer = document.querySelector(".dots");
-
-//Fonctions
 
 /**
  * Updates the banner image, text, and navigation dots
@@ -61,7 +41,8 @@ function changeSlide(direction) {
  * Update the global `index` to the clicked dot's position.
  * Trigger the `updateBanner()` function to refresh the banner display.
  */
-function generateDots() {
+function dotsHandler
+() {
 	slides.forEach((_, i) => {
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
@@ -80,15 +61,12 @@ function generateDots() {
  * - Updates the banner with the first slide
  * - Generates navigation dots
  */
-function init() {
+export function carouselInit() {
 
 leftArrow.addEventListener("click", () => changeSlide(-1));
 rightArrow.addEventListener("click", () => changeSlide(1));
 updateBanner();
-generateDots();
+dotsHandler
+();
 
 }
-
-init();
-
-
