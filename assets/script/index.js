@@ -1,7 +1,18 @@
 //imports
 import {carouselInit} from './modules/carousel.js';
 
-//initialisation
+
+// init function
+
+function init(){
+
 carouselInit();
+
+}
+
+
+
+//initialisation
+ init()
 
 
