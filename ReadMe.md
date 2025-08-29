@@ -1,10 +1,13 @@
 # Print-It WebSite v.1
 https://github.com/ValKer-OPCS/OPCS-P5
 
+https://valker-opcs.github.io/OPCS-P5/
+
 Projet OpenClassRooms - Intégrateur Web - Projet 5
 
 Premiers pas sur le langage JavaScript - dynamiser le site Internet statique d’une petite imprimerie familiale nommée Print it
 
+Etape-7
 Carrousel Dynamique
 
 Ce projet a pour objectif de créer un carrousel d’images interactif avec navigation par flèches et bullet points, entièrement fonctionnel en HTML, CSS et JavaScript.
