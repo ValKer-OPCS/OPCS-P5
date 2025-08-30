@@ -1,12 +1,24 @@
 //imports
-import {carouselInit} from './modules/carousel.js';
-
+import { carouselInit } from "./modules/carousel.js";
+import { slides as slidesBanner, } from "./variables.js";
 
 // init function
 
 function init(){
 
-carouselInit();
+
+
+// Carousel for #banner
+carouselInit({
+  container: "#banner",
+  slides: slidesBanner,
+  autoplay: false,
+  interval: 2000,
+  infinite: true,
+});
+
+
+
 
 }
 
